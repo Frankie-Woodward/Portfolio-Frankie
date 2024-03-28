@@ -1,8 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/Portfolio-Frankie/"
+  base: '/Portfolio-Frankie/',  // Adjust if necessary
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      // Rollup options if needed
+    }
+  }
 });
