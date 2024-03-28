@@ -23,6 +23,14 @@ jobs:
 
     - name: Build Project
       run: npm run build
+
+    - name: List output directory
+      run: |
+        pwd
+        ls -al
+        echo "Listing dist directory contents"
+        ls -al dist/
+
       
     - name: List directory contents
       run: ls -al
