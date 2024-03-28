@@ -1,0 +1,109 @@
+
+body {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),  /* Dark overlay; adjust alpha for darkness */
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('./src/assets/blue_camo.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  padding-top: 20px;
+  position: relative;
+
+}
+
+
+
+
+.swiper-pagination-bullet-active {
+  background: #fff; /* Change active bullet color */
+}
+.swiper-pagination-bullet {
+  opacity: 1; /* Make all bullets fully opaque */
+  width: 10px; /* Bullet width */
+  height: 10px; /* Bullet height */
+}
+.arrow-container {
+    width: 100%;
+    height: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+
+
+.arrow-container img {
+  width: 50px;
+  height: 50px;
+  border: solid black;
+  margin: 10px;
+  border-radius: 25%;
+  opacity: 75%;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+
+.down-arrow img {
+  transform: rotate(90deg);
+  animation: downArrowAnimation 2s infinite;
+}
+
+.left-arrow img {
+  transform: rotate(180deg);
+  animation: leftArrowAnimation 2s infinite;
+}
+
+.right-arrow {
+  transform: rotate(0deg);
+  animation: rightArrowAnimation 2s infinite;
+ 
+}
+.up-arrow img{
+  transform: rotate(270deg);
+  animation: upArrowAnimation 2s infinite;
+}
+
+
+
+@keyframes upArrowAnimation {
+  0%, 100% { transform: rotate(270deg) translateX(0); }
+  50% { transform: rotate(270deg) translateX(10px); }
+}
+
+
+@keyframes downArrowAnimation {
+  0%, 100% { transform: rotate(90deg) translateX(0); }
+  50% { transform: rotate(90deg) translateX(-10px); }
+}
+@keyframes leftArrowAnimation {
+  0%, 100% { transform: rotate(180deg) translateX(0); }
+  50% { transform: rotate(180deg) translateX(10px); }
+}
+
+
+@keyframes rightArrowAnimation {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  50% { transform: rotate(0deg) translateX(10px); }
+}
+
+
+

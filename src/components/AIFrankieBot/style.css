@@ -1,0 +1,12 @@
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: yellow;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    border: 5px solid #948d8d;
+    overflow-y: auto; /* For scroll */
+    height: 200px; /* Adjust as needed */
+    width: 350px; /* Adjust as needed */
+}

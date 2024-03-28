@@ -1,0 +1,34 @@
+@media only screen and (max-width: 300px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; /* Distribute space between items */
+        align-items: center;
+        padding: 0 10px; /* Reduce padding */
+    }
+
+    .navbar-brand {
+        flex-grow: 1; /* Allow the brand to grow */
+        display: flex;
+        align-items: center; /* Align items vertically */
+    }
+
+    .navbar-nav {
+        display: flex; /* Ensure nav items are in a flex row */
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 12px; /* Reduce font size */
+        padding: 5px; /* Reduce padding */
+        margin-right: 5px; /* Reduce margin between links */
+    }
+
+    .navbar-nav img {
+        height: 30px; /* Adjust image size */
+        width: auto;
+    }
+}

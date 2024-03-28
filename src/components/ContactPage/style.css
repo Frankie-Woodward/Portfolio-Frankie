@@ -1,0 +1,88 @@
+.slide-container {
+    display: grid;
+    position: relative;
+    grid-template-columns: 50px 1fr 50px; /* Space for left arrow, content, right arrow */
+    grid-template-rows: 50px 1fr 50px;
+    height: 75%;
+    width: 75%;
+  }
+
+  .contact {
+    grid-column: 2 / 3; /* Place content in the middle column */
+    grid-row: 2 / 3;
+    margin: 50px 100px 100px 100px;
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+
+  }
+  .figure {
+    margin: 25px; /* 25px margin on each side of the figure */
+}
+
+/* Rest of your styles remain the same */
+
+.figure img {
+    height: 200px;
+    width: auto;
+   
+}
+.figure-caption {
+   margin: 0px 10px 0px 0px;
+}
+@media only screen and (max-width: 600px) {
+  .contact {
+    min-width: 300px; /* Ensure divs do not shrink below 300px */
+    height: 100vh;
+    margin: 20px; /* Add space around divs to prevent overlap */
+    overflow: auto; /* Make div content scrollable if it overflows */
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Adjust grid container to accommodate for the spacing */
+  .slide-container {
+    
+    display: flex; /* Use flex layout for narrow screens */
+    flex-direction: column; 
+    justify-content: center;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 20px; /* Add gaps between grid items for spacing */
+  }
+  
+  /* Adjustments to arrows if necessary to align with the new layout */
+  .left-arrow, .right-arrow, .up-arrow, .down-arrow {
+    justify-self: center;
+    align-self: center;
+    display: none;
+
+  }
+}
+@media only screen and (max-width: 300px) {
+  .contact {
+    min-width: 280px; /* Ensure divs do not shrink below 300px */
+    height: 100vh;
+    margin: 20px; /* Add space around divs to prevent overlap */
+    overflow: auto; /* Make div content scrollable if it overflows */
+    box-shadow: 20px 20px 20px 20px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Adjust grid container to accommodate for the spacing */
+  .slide-container {
+    
+    display: flex; /* Use flex layout for narrow screens */
+    flex-direction: column; 
+    justify-content: center;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    margin-right: 110px;
+    gap: 20px; /* Add gaps between grid items for spacing */
+  }
+  
+  /* Adjustments to arrows if necessary to align with the new layout */
+  .left-arrow, .right-arrow, .up-arrow, .down-arrow {
+    justify-self: center;
+    align-self: center;
+    display: none;
+
+  }
+}
