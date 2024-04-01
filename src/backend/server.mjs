@@ -33,9 +33,13 @@ app.use(express.json());
 
 // Openai
 console.log(process.env.OPENAI_API_KEY);
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY
-});
+const apiKey = process.env.OPENAI_API_KEY;
+
+if (!apiKey) {
+    throw new Error('OPENAI_API_KEY environment variable is missing or empty.');
+}
+
+const openai = new OpenAI({ apiKey });
 
 app.use('/api/proxy', async (req, res) => {
     try {
