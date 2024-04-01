@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiBaseUrl = 'http://localhost:3000/api/messages';
+const apiBaseUrl = 'https://localhost:3000/api/messages';
 
 // Create a new message
 export async function createMessage(data) {
