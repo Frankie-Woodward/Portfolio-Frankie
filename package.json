@@ -5,8 +5,8 @@
   "type": "module",
   "homepage": "https://Frankie-Woodward.github.io/Portfolio-Frankie/",
   "scripts": {
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "backend": "nodemon src/backend/server.mjs",
     "build": "vite build",
