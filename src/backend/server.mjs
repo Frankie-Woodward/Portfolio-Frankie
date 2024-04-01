@@ -23,9 +23,10 @@ dbConnection.on('connected', () => {
 // Express app setup
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:5173/Portfolio-Frankie/', // Update with your React app's URL
+    origin: 'https://Frankie-Woodward.github.io', // Update with your React app's URL
     methods: ['GET', 'POST'], // Allow only GET and POST requests
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+    credentials: true,
 }));
 
 app.use(express.urlencoded({ extended: true }));
