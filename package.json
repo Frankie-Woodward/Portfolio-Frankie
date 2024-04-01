@@ -12,7 +12,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start": "vite build && node src/backend/server.mjs"
+    "start": "npx vite build && node src/backend/server.mjs"
   },
   "dependencies": {
     "@types/react": "^18.2.43",
