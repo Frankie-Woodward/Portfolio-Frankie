@@ -8,7 +8,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 // Import your database and models
-import { Message } from './models/index.mjs';
+import {Message} from './models/index.mjs';
 import messagesCtrl from './controllers/messages.mjs';
 import mongoose from 'mongoose';
 
@@ -23,21 +23,32 @@ dbConnection.on('connected', () => {
 // Express app setup
 const app = express();
 app.use(cors({
-    origin: 'https://Frankie-Woodward.github.io', // Update with your React app's URL
+    origin: 'https://portfolio-frankie-3976b8e5c822.herokuapp.com', // Update with your React app's URL
     methods: ['GET', 'POST'], // Allow only GET and POST requests
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
     credentials: true,
 }));
+
+// Mount routes
+app.use('/api/messages', messagesCtrl);
+
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // use the React build folder for static files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+app.use(express.static(path.join(__dirname, '..', '..', 'dist')));
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
+
 // Any other route not matching the routes above gets routed by React
 app.get('*', (req, res) => {
-    res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', '..', 'dist', 'index.html'));
 });
 
 
@@ -89,8 +100,6 @@ app.use('/api/proxy', async (req, res) => {
 
 
 
-// Mount routes
-app.use('/api/messages', messagesCtrl);
 
 // Start the server
 app.listen(process.env.PORT, () => {

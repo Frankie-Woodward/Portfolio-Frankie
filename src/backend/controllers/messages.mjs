@@ -18,12 +18,20 @@ router.post('/', async (req, res) => {
 // GET/Read Route: Get all messages
 router.get('/', async (req, res) => {
     try {
+        console.log('Fetching messages from the database...');
+
         const messages = await Message.find({});
-        res.status(200).json(messages);
+        console.log('Fetched messages:', messages);
+
+        res.status(200).json(messages); // Send JSON response
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        console.error('Error fetching messages:', error);
+        res.status(500).json({ error: 'Internal server error' }); // Send JSON error response
     }
 });
+
+
+
 
 // PUT/Update Route: Update a message by id
 router.put('/:id', async (req, res) => {

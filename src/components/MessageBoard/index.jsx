@@ -9,8 +9,14 @@ export default function MessageBoard() {
 
     useEffect(() => {
         const fetchMessages = async () => {
-            const fetchedMessages = await getMessages();
-            setMessages(fetchedMessages);
+            try { 
+                const fetchedMessages = await getMessages();
+                console.log('Fetched Messages:', fetchedMessages); 
+                setMessages(fetchedMessages);
+            }
+            catch (error) {
+                console.error('Error fetching messages:', error);
+            }
         };
         fetchMessages();
     }, []);
