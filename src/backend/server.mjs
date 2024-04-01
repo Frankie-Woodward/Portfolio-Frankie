@@ -22,6 +22,11 @@ dbConnection.on('connected', () => {
 
 // Express app setup
 const app = express();
+
+// Mount routes
+app.use('/api/messages', messagesCtrl);
+
+
 app.use(cors({
     origin: 'https://portfolio-frankie-3976b8e5c822.herokuapp.com', // Update with your React app's URL
     methods: ['GET', 'POST'], // Allow only GET and POST requests
@@ -29,8 +34,7 @@ app.use(cors({
     credentials: true,
 }));
 
-// Mount routes
-app.use('/api/messages', messagesCtrl);
+
 
 
 app.use(express.urlencoded({ extended: true }));
