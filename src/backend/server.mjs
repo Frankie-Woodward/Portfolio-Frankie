@@ -5,11 +5,11 @@ import cors from 'cors';
 import OpenAI from 'openai';
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Import your database and models
 import { Message } from './models/index.mjs';
 import messagesCtrl from './controllers/messages.mjs';
-
 import mongoose from 'mongoose';
 
 // Connect to MongoDB Atlas
@@ -31,6 +31,15 @@ app.use(cors({
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// use the React build folder for static files
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+// Any other route not matching the routes above gets routed by React
+app.get('*', (req, res) => {
+    res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
+});
+
 
 // Openai
 console.log(process.env.OPENAI_API_KEY);
