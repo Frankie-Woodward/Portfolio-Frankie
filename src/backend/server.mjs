@@ -102,9 +102,6 @@ app.use('/api/proxy', async (req, res) => {
 });
 
 
-
-
-
 // Start the server
 const PORT = process.env.PORT || 3000; // Use process.env.PORT if available, otherwise use 3000
 app.listen(PORT, () => {
