@@ -57,11 +57,16 @@ router.put('/:id', async (req, res) => {
     try {
         console.log('Update Request Body:', req.body); // Log request body for debugging
         const updatedMessage = await Message.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+        if (!updatedMessage) {
+            return res.status(404).json({ error: 'Message not found.' });
+        }
+
         console.log('Updated Message:', updatedMessage); // Log updated message for debugging
         res.status(200).json(updatedMessage);
     } catch (error) {
         console.error('Error updating message:', error);
-        res.status(400).json({ error: error.message });
+        res.status(500).json({ error: 'Server error. Failed to update message.' });
     }
 });
 
