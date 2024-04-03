@@ -55,12 +55,16 @@ router.get('/', async (req, res) => {
 // PUT/Update Route: Update a message by id
 router.put('/:id', async (req, res) => {
     try {
+        console.log('Update Request Body:', req.body); // Log request body for debugging
         const updatedMessage = await Message.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        console.log('Updated Message:', updatedMessage); // Log updated message for debugging
         res.status(200).json(updatedMessage);
     } catch (error) {
+        console.error('Error updating message:', error);
         res.status(400).json({ error: error.message });
     }
 });
+
 
 // DELETE/Delete Route: Delete a message by id
 router.delete('/:id', async (req, res) => {
