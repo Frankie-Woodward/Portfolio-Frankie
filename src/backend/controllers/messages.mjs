@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     try {
         const { name, email, phoneNumber, message } = req.body;
 
-        if (!name || !email || !phoneNumber || !message) {
+        if (!name || !message) {
             return res.status(400).json({ error: 'All fields are required.' });
         }
 

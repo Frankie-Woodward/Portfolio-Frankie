@@ -3,7 +3,7 @@ import './style.css';
 import { createMessage, getMessages, updateMessage, deleteMessage } from '../../utils/backend.js';
 
 export default function MessageBoard() {
-    const [formData, setFormData] = useState({ name: '', email: '', phoneNumber: '', message: '', _id: null });
+    const [formData, setFormData] = useState({ name: '', email: '', phoneNumber: '', message: '' });
     const [messages, setMessages] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
@@ -42,7 +42,7 @@ export default function MessageBoard() {
                 const newMessage = await createMessage(formData);
                 setMessages([...messages, newMessage]);
             }
-            setFormData({ name: '', email: '', phoneNumber: '', message: '', _id: null });
+            setFormData({ name: '', email: '', phoneNumber: '', message: ''});
             setShowModal(false);
         } catch (error) {
             console.error('Error submitting form:', error.message);
@@ -63,7 +63,7 @@ export default function MessageBoard() {
     };
 
     const openModal = () => {
-        setFormData({ name: '', email: '', phoneNumber: '', message: '', _id: null });
+        setFormData({ name: '', email: '', phoneNumber: '', message: '' });
         setShowModal(true);
     };
 
