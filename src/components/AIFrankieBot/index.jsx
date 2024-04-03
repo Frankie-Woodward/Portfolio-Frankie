@@ -7,7 +7,7 @@ const FrankieChatBot = () => {
   
     const sendMessageToAi = async (userMessage) => {
         try {
-            const response = await fetch('http://localhost:3000/api/proxy', {
+            const response = await fetch('https://portfolio-frankie-3976b8e5c822.herokuapp.com/api/proxy', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

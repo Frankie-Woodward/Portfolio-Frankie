@@ -1,7 +1,5 @@
 import axios from 'axios';
-
 const apiBaseUrl = 'https://portfolio-frankie-3976b8e5c822.herokuapp.com/api/messages';
-
 const axiosInstance = axios.create({
     baseURL: apiBaseUrl,
     timeout: 5000, // Adjust timeout as needed
