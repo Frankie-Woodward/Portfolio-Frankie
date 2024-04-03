@@ -9,7 +9,12 @@ import {Message} from '../models/message.mjs';
 router.post('/', async (req, res) => {
     try {
         // Create a new message instance
-        const newMessage = new Message(req.body);
+        const newMessage = new Message({
+            name: req.body.name,
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            message: req.body.message
+        });
 
         // Save the message to the database
         await newMessage.save();
