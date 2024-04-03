@@ -6,7 +6,7 @@ import {Message} from '../models/message.mjs';
 
 // POST/Create Route: Save a new message
 // Route for creating a new message
-router.post('/messages', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         // Extract data from the request body
         const { name, email, phoneNumber, message } = req.body;
