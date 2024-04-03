@@ -30,4 +30,4 @@ Below are the learning experiences I recieved while working on this project:
 - Mount controller routes “app.use” before other routes, or place app.use methods before other routes that could create conflicts 
 - Responsiveness - remove animations to prevent clutter at smaller screen sizes
 - Use HTTP for api endpoints in development, and HTTPS in production and deployment to avoid ssl issues
-
+- By placing the express.urlencoded and express.json middleware before other middleware and route mounting, you ensure that incoming request bodies are properly parsed before they are handled by your routes or other middleware. This is the recommended approach for handling request body parsing in Express applications.
