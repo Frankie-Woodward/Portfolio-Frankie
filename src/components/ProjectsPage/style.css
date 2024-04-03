@@ -126,6 +126,65 @@
 
   }
 }
+/* Targeting WebKit browsers */
+@media only screen and (max-width: 600px) {
+  .identify, .c-forge, .catchem-all {
+      /* your existing styles */
+      overflow: auto;
+  }
+
+  /* Custom styles for the scrollbar */
+  .identify::-webkit-scrollbar, 
+  .c-forge::-webkit-scrollbar, 
+  .catchem-all::-webkit-scrollbar {
+      width: 12px; /* Wider scrollbars */
+  }
+
+  .identify::-webkit-scrollbar-thumb, 
+  .c-forge::-webkit-scrollbar-thumb, 
+  .catchem-all::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 10px;
+  }
+
+  .identify::-webkit-scrollbar-track, 
+  .c-forge::-webkit-scrollbar-track, 
+  .catchem-all::-webkit-scrollbar-track {
+      background: white;
+  }
+}
+
+/* Continue with other media queries and styles */
+/* Targeting WebKit browsers */
+@media only screen and (max-width: 300px) {
+  .identify, .c-forge, .catchem-all {
+      /* your existing styles */
+      overflow: auto;
+  }
+
+  /* Custom styles for the scrollbar */
+  .identify::-webkit-scrollbar, 
+  .c-forge::-webkit-scrollbar, 
+  .catchem-all::-webkit-scrollbar {
+      width: 12px; /* Wider scrollbars */
+  }
+
+  .identify::-webkit-scrollbar-thumb, 
+  .c-forge::-webkit-scrollbar-thumb, 
+  .catchem-all::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 10px;
+  }
+
+  .identify::-webkit-scrollbar-track, 
+  .c-forge::-webkit-scrollbar-track, 
+  .catchem-all::-webkit-scrollbar-track {
+      background: white;
+  }
+}
+
+/* Continue with other media queries and styles */
+
 @media only screen and (max-width: 300px) {
   .identify, .c-forge, .catchem-all {
     max-height: 630px;

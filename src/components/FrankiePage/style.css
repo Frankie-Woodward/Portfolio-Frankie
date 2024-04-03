@@ -155,3 +155,61 @@
 
   }
 }
+/* Targeting WebKit browsers for Frankie-page */
+@media only screen and (max-width: 600px) {
+  .career, .school, .army, .family {
+      overflow: auto; /* Ensures content is scrollable */
+  }
+
+  /* Custom styles for the scrollbar */
+  .career::-webkit-scrollbar, 
+  .school::-webkit-scrollbar, 
+  .army::-webkit-scrollbar, 
+  .family::-webkit-scrollbar {
+      width: 12px; /* Wider scrollbars for smaller screens */
+  }
+
+  .career::-webkit-scrollbar-thumb, 
+  .school::-webkit-scrollbar-thumb, 
+  .army::-webkit-scrollbar-thumb, 
+  .family::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 10px;
+  }
+
+  .career::-webkit-scrollbar-track, 
+  .school::-webkit-scrollbar-track, 
+  .army::-webkit-scrollbar-track, 
+  .family::-webkit-scrollbar-track {
+      background: white;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .career, .school, .army, .family {
+      overflow: auto; /* Ensures content is scrollable */
+  }
+
+  /* Custom styles for the scrollbar */
+  .career::-webkit-scrollbar, 
+  .school::-webkit-scrollbar, 
+  .army::-webkit-scrollbar, 
+  .family::-webkit-scrollbar {
+      width: 12px; /* Even wider scrollbars for very small screens */
+  }
+
+  .career::-webkit-scrollbar-thumb, 
+  .school::-webkit-scrollbar-thumb, 
+  .army::-webkit-scrollbar-thumb, 
+  .family::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 10px;
+  }
+
+  .career::-webkit-scrollbar-track, 
+  .school::-webkit-scrollbar-track, 
+  .army::-webkit-scrollbar-track, 
+  .family::-webkit-scrollbar-track {
+      background: white;
+  }
+}
