@@ -32,7 +32,9 @@ export default function MessageBoard() {
             if (!formData.name || !formData.message) {
                 throw new Error('Name and Message are required fields.');
             }
-    
+            // Log formData just before making the API call
+            console.log('Form Data:', formData);
+            
             if (formData._id) {
                 const updatedMessage = await updateMessage(formData._id, formData);
                 setMessages(messages.map(msg => msg._id === formData._id ? updatedMessage : msg));

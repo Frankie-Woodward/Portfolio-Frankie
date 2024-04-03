@@ -5,16 +5,35 @@ const router = express.Router();
 import {Message} from '../models/message.mjs';
 
 // POST/Create Route: Save a new message
-router.post('/', async (req, res) => {
+// Route for creating a new message
+router.post('/messages', async (req, res) => {
     try {
-        const newMessage = new Message(req.body);
-        const savedMessage = await newMessage.save();
-        res.status(201).json(savedMessage);
+        // Extract data from the request body
+        const { name, email, number, message } = req.body;
+
+        // Validate required fields
+        if (!name || !message) {
+            return res.status(400).json({ error: 'Name and Message are required fields.' });
+        }
+
+        // Create a new message instance
+        const newMessage = new Message({
+            name,
+            email,
+            number,
+            message
+        });
+
+        // Save the message to the database
+        await newMessage.save();
+
+        // Return the newly created message
+        res.status(201).json(newMessage);
     } catch (error) {
-        res.status(400).json({ error: error.message });
+        console.error('Error creating message:', error);
+        res.status(500).json({ error: 'Server error. Failed to create message.' });
     }
 });
-
 // GET/Read Route: Get all messages
 router.get('/', async (req, res) => {
     try {
