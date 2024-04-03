@@ -19,7 +19,7 @@ export async function getMessages() {
 // Create a new message
 export async function createMessage(data) {
     try {
-        const response = await axiosInstance.post('/messages', data); // Updated endpoint to /messages
+        const response = await axiosInstance.post('/', data); // Updated endpoint to /messages
         return response.data;
     } catch (error) {
         console.error('Error creating message:', error);
