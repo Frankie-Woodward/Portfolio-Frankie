@@ -28,16 +28,26 @@ export default function MessageBoard() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (formData._id) {
-            const updatedMessage = await updateMessage(formData._id, formData);
-            setMessages(messages.map(msg => msg._id === formData._id ? updatedMessage : msg));
-        } else {
-            const newMessage = await createMessage(formData);
-            setMessages([...messages, newMessage]);
+        try {
+            if (!formData.name || !formData.message) {
+                throw new Error('Name and Message are required fields.');
+            }
+    
+            if (formData._id) {
+                const updatedMessage = await updateMessage(formData._id, formData);
+                setMessages(messages.map(msg => msg._id === formData._id ? updatedMessage : msg));
+            } else {
+                const newMessage = await createMessage(formData);
+                setMessages([...messages, newMessage]);
+            }
+            setFormData({ name: '', email: '', phoneNumber: '', message: '', _id: null });
+            setShowModal(false);
+        } catch (error) {
+            console.error('Error submitting form:', error.message);
+            // Display error message to the user or handle it appropriately
         }
-        setFormData({ name: '', email: '', phoneNumber: '', message: '', _id: null });
-        setShowModal(false);
     };
+    
 
     const handleDelete = async (id) => {
         await deleteMessage(id);
