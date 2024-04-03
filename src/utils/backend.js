@@ -33,7 +33,7 @@ export async function createMessage(data) {
 // Update a message by id
 export async function updateMessage(id, data) {
     try {
-        const response = await axiosInstance.put(`/messages/${id}`, data); // Updated endpoint to /messages/:id
+        const response = await axiosInstance.put(`/${id}`, data); // Updated endpoint to /messages/:id
         return response.data;
     } catch (error) {
         console.error('Error updating message:', error);

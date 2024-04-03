@@ -9,6 +9,7 @@ import {Message} from '../models/message.mjs';
 router.post('/', async (req, res) => {
     try {
         // Extract data from the request body
+        console.log('Request Body:', req.body);
         const { name, email, phoneNumber, message } = req.body;
 
         // Validate required fields
