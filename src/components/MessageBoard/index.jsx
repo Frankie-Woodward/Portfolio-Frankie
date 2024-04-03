@@ -34,7 +34,7 @@ export default function MessageBoard() {
             }
             // Log formData just before making the API call
             console.log('Form Data:', formData);
-            
+
             if (formData._id) {
                 const updatedMessage = await updateMessage(formData._id, formData);
                 setMessages(messages.map(msg => msg._id === formData._id ? updatedMessage : msg));
@@ -80,7 +80,7 @@ export default function MessageBoard() {
                         <form onSubmit={handleSubmit} className="form-column">
                             <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" />
                             <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" />
-                            <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="Your Phone Number" />
+                            <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="Your Phone Number" />
                             <textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" />
                             <button type="submit">Submit</button>
                             {formData._id && <button type="button" onClick={() => handleDelete(formData._id)}>Delete</button>}
