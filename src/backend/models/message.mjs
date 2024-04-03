@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 
 const messageSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
+    name: { type: String },
+    email: { type: String },
     number: { type: Number, maxLength: 30 },
-    message: { type: String, required: true }
+    message: { type: String }
 }, { timestamps: true });
 
 const Message = mongoose.model('Message', messageSchema);
