@@ -56,6 +56,8 @@ router.get('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         console.log('Update Request Body:', req.body); // Log request body for debugging
+        console.log('Message ID:', req.params.id); // Log message ID for debugging
+
         const updatedMessage = await Message.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
         if (!updatedMessage) {
@@ -69,6 +71,7 @@ router.put('/:id', async (req, res) => {
         res.status(500).json({ error: 'Server error. Failed to update message.' });
     }
 });
+
 
 
 // DELETE/Delete Route: Delete a message by id

@@ -29,7 +29,7 @@ app.use('/api/messages', messagesCtrl);
 
 app.use(cors({
     origin: 'https://portfolio-frankie-3976b8e5c822.herokuapp.com', // Update with your React app's URL
-    methods: ['GET', 'POST'], // Allow only GET and POST requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow only GET and POST requests
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
     credentials: true,
 }));
