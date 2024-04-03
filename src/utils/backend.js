@@ -5,16 +5,6 @@ const axiosInstance = axios.create({
     timeout: 5000, // Adjust timeout as needed
     // Other Axios configurations
 });
-// Create a new message
-export async function createMessage(data) {
-    try {
-        const response = await axios.post(`${apiBaseUrl}/`, data);
-        return response.data;
-    } catch (error) {
-        console.error('Error creating message:', error);
-        throw error;
-    }
-}
 
 // Get all messages
 export async function getMessages() {
@@ -26,12 +16,21 @@ export async function getMessages() {
         throw error;
     }
 }
-
+// Create a new message
+export async function createMessage(data) {
+    try {
+        const response = await axiosInstance.post('/', data);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating message:', error);
+        throw error;
+    }
+}
 
 // Update a message by id
 export async function updateMessage(id, data) {
     try {
-        const response = await axios.put(`${apiBaseUrl}/${id}`, data);
+        const response = await axiosInstance.put(`/${id}`, data);
         return response.data;
     } catch (error) {
         console.error('Error updating message:', error);
@@ -42,7 +41,7 @@ export async function updateMessage(id, data) {
 // Delete a message by id
 export async function deleteMessage(id) {
     try {
-        const response = await axios.delete(`${apiBaseUrl}/${id}`);
+        const response = await axiosInstance.delete(`/${id}`);
         return response.data;
     } catch (error) {
         console.error('Error deleting message:', error);
