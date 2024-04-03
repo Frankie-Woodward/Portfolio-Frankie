@@ -1,4 +1,3 @@
-// Use import instead of require for ES modules
 import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
@@ -8,7 +7,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 // Import your database and models
-import {Message} from './models/index.mjs';
+import { Message } from './models/index.mjs';
 import messagesCtrl from './controllers/messages.mjs';
 import mongoose from 'mongoose';
 
@@ -23,26 +22,26 @@ dbConnection.on('connected', () => {
 // Express app setup
 const app = express();
 
-// Mount routes
-app.use('/api/messages', messagesCtrl);
+// Middleware to parse incoming request bodies
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-
+// Enable CORS for your frontend app
 app.use(cors({
     origin: 'https://portfolio-frankie-3976b8e5c822.herokuapp.com', // Update with your React app's URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow only GET and POST requests
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow only GET, POST, PUT, DELETE requests
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
     credentials: true,
 }));
 
+// Mount your API routes
+app.use('/api/messages', messagesCtrl);
 
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// use the React build folder for static files
+// Serve static files from the React build folder
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, '..', '..', 'dist')));
+
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
