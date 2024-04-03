@@ -19,7 +19,7 @@ export async function getMessages() {
 // Create a new message
 export async function createMessage(data) {
     try {
-        const response = await axiosInstance.post('/', data);
+        const response = await axiosInstance.post('/messages', data); // Updated endpoint to /messages
         return response.data;
     } catch (error) {
         console.error('Error creating message:', error);
@@ -30,13 +30,14 @@ export async function createMessage(data) {
 // Update a message by id
 export async function updateMessage(id, data) {
     try {
-        const response = await axiosInstance.put(`/${id}`, data);
+        const response = await axiosInstance.put(`/messages/${id}`, data); // Updated endpoint to /messages/:id
         return response.data;
     } catch (error) {
         console.error('Error updating message:', error);
         throw error;
     }
 }
+
 
 // Delete a message by id
 export async function deleteMessage(id) {
