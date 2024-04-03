@@ -85,6 +85,7 @@ export default function MessageBoard() {
                             <button type="submit">Submit</button>
                             {formData._id && <button type="button" onClick={() => handleDelete(formData._id)}>Delete</button>}
                         </form>
+
                     </div>
                 </div>
             )}

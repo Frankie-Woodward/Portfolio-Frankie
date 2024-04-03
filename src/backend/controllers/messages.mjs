@@ -8,24 +8,28 @@ import {Message} from '../models/message.mjs';
 // Route for creating a new message
 router.post('/', async (req, res) => {
     try {
-        // Create a new message instance
+        const { name, email, phoneNumber, message } = req.body;
+
+        if (!name || !email || !phoneNumber || !message) {
+            return res.status(400).json({ error: 'All fields are required.' });
+        }
+
         const newMessage = new Message({
-            name: req.body.name,
-            email: req.body.email,
-            phoneNumber: req.body.phoneNumber,
-            message: req.body.message
+            name,
+            email,
+            phoneNumber,
+            message
         });
 
-        // Save the message to the database
         await newMessage.save();
 
-        // Return the newly created message
         res.status(201).json(newMessage);
     } catch (error) {
         console.error('Error creating message:', error);
         res.status(500).json({ error: 'Server error. Failed to create message.' });
     }
 });
+
 
 
 // GET/Read Route: Get all messages
