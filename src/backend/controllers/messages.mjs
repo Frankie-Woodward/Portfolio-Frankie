@@ -8,12 +8,13 @@ import {Message} from '../models/message.mjs';
 // Route for creating a new message
 router.post('/', async (req, res) => {
     try {
-        const { name, email, phoneNumber, message } = req.body;
+        // Hardcoded values for testing (replace with actual data)
+        const name = 'Test User';
+        const email = 'test@example.com';
+        const phoneNumber = '1234567890';
+        const message = 'This is a test message.';
 
-        if (!name || !message) {
-            return res.status(400).json({ error: 'All fields are required.' });
-        }
-
+        // Create a new message instance using hardcoded values
         const newMessage = new Message({
             name,
             email,
@@ -21,14 +22,17 @@ router.post('/', async (req, res) => {
             message
         });
 
+        // Save the message to the database
         await newMessage.save();
 
+        // Return the newly created message
         res.status(201).json(newMessage);
     } catch (error) {
         console.error('Error creating message:', error);
         res.status(500).json({ error: 'Server error. Failed to create message.' });
     }
 });
+
 
 
 
